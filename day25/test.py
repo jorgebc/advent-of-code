@@ -1,5 +1,11 @@
 import os
-from day25 import translateNumberToDecimal, translateNumbersToDecimal, fromDecimalToBase,decimalToSanafu, fixMultiDigit
+from day25 import (
+    translateNumberToDecimal,
+    translateNumbersToDecimal,
+    fromDecimalToBase,
+    decimalToSanafu,
+    fixMultiDigit,
+)
 
 testExpectedResult = ["1-"]
 result = fixMultiDigit(["1-"])
@@ -7,12 +13,11 @@ assert (
     result == testExpectedResult
 ), f"Result should be {testExpectedResult} but was {result}"
 
-testExpectedResult = ["2","-"]
+testExpectedResult = ["2", "-"]
 result = fixMultiDigit(["1", "1-"])
 assert (
     result == testExpectedResult
 ), f"Result should be {testExpectedResult} but was {result}"
-
 
 
 testExpectedResult = 1
@@ -60,6 +65,7 @@ assert (
     result == testExpectedResult
 ), f"Result should be {testExpectedResult} but was {result}"
 
+
 def getInputFromFile(path):
     file_path = os.path.join(os.getcwd(), path)
     # Open the file in read-only mode
@@ -76,8 +82,6 @@ def getInputFromFile(path):
 
 inputText = getInputFromFile("day25\\input.txt")
 result = translateNumbersToDecimal(inputText)
-print(result)
-print(f"Sum del result: {sum(result)}")
 
 result = decimalToSanafu(sum(result))
 print(f"Part 1: {''.join(result)}")
